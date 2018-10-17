@@ -1,4 +1,4 @@
-package com.AtlantaScienceAcademy.app;
+package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,5 +17,17 @@ public class WebOrdersLoginPage {
 	public WebElement password;
 	@FindBy(id="ctl00_MainContent_login_button")
 	public WebElement loginButton;
+	@FindBy(id="ct100_logout")
+	public WebElement logOut;
+	
+	public void login (String uid, String pwd) {
+		userName.sendKeys(uid);
+		password.sendKeys(pwd);
+		loginButton.click();	
+		
+		}
+	public void logOut() {
+		logOut.click();
+	}
 
 }
