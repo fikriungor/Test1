@@ -8,14 +8,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProductsPage {
-	
-	public ProductsPage(WebDriver driver)
-	{
+
+	public ProductsPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(xpath="//table[@class='ProductsTable']/tbody/tr/td[1]")
-	
-	public List <WebElement> productNames;
-	
+
+	@FindBy(xpath = "//table[@class='ProductsTable']/tbody/tr/td[1]")
+	public List<WebElement> productNames;
+
+	@FindBy(xpath = "//table[@class='ProductsTable']/tbody/tr")
+	public List<WebElement> productRows;
+
 }

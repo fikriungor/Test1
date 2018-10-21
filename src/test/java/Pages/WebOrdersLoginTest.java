@@ -69,16 +69,41 @@ public class WebOrdersLoginTest {
 			 actProducts.add(product.getText());
 			 assertEquals(actProducts,expProducts);
 			 
-			 loginPage.logOut();
-				driver.close();
+			 for(WebElement row:productsPage.productRows) {
+				 
+				 System.out.println(row.getText());
+				 
+				 String[] prodData = row.getText().split(" ");
+				 switch (prodData[0]) {
+				 
+				 case "MyMoney":
+				 assertEquals(prodData[1], "$100");
+				 assertEquals(prodData[2], "8%");
+				 break;
+				 
+				 case "FamilyAlbum":
+					 assertEquals(prodData[1], "$80");
+					 assertEquals(prodData[2], "15%");
+					 break;
+					 
+				 case "ScreenSaver":
+					 assertEquals(prodData[1], "$20");
+					 assertEquals(prodData[2], "10%");
+					 break;
+				 
+				 }
+			 }
+			 
+			 
 		 }
 		
 	}
 	
-//	//@AfterMethod
-//	public void afterTest() {
-//	
-//	}
+	@AfterMethod
+	public void afterTest() {
+	loginPage.logOut();
+	driver.close();
+	}
 }	
 
 
